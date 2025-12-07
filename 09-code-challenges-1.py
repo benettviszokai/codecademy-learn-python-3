@@ -202,3 +202,189 @@ print(max_num(-5, -10, -10))
 # should print -5
 print(max_num(2, 3, 3))
 # should print "It's a tie!"
+
+"""
+Python Code Challenges: Lists
+
+In this set of challenges, the task was to practice working with Python lists by
+solving a series of small problems using functions. Each exercise focused on
+operations such as indexing, slicing, iterating over lists, modifying list
+contents, and returning new lists based on certain conditions. The goal was to
+experiment, debug, and refine solutions while building a stronger understanding
+of how to manipulate lists effectively in Python.
+"""
+
+# 1. Append Size
+
+# Create a function called append_size() that has one parameter named my_list.
+# The function should append the size of my_list (inclusive) to the end of my_list. The function should then return this new list.
+# For example, if my_list was [23, 42, 108], the function should return [23, 42, 108, 3] because the size of my_list was originally 3.
+
+# Write your function here
+def append_size(my_list):
+  my_list.append(len(my_list))
+  return my_list
+
+# Uncomment the line below when your function is done
+print(append_size([23, 42, 108]))
+
+# 2. Append Sum
+
+# Write a function named append_sum() that has one parameter — a list named named my_list.
+# The function should add the last two elements of my_list together and append the result to my_list. It should do this process three times and then return my_list.
+# For example, if my_list started as [1, 1, 2], the final result should be [1, 1, 2, 3, 5, 8].
+
+# Write your function here
+def append_sum(my_list):
+  last_two = my_list[-1] + my_list[-2]
+  my_list.append(last_two)
+  last_two = my_list[-1] + my_list[-2]
+  my_list.append(last_two)
+  last_two = my_list[-1] + my_list[-2]
+  my_list.append(last_two)
+  
+  return my_list
+
+# Uncomment the line below when your function is done
+print(append_sum([1, 1, 2]))
+
+# 3. Larger List
+
+# Write a function named larger_list() that has two parameters named my_list1 and my_list2.
+# The function should return the last element of the list that contains more elements. If both lists are the same size, then return the last element of my_list1.
+
+# Write your function here
+def larger_list(my_list1, my_list2):
+  if len(my_list1) > len(my_list2):
+    return my_list1[-1]
+  elif len(my_list1) < len(my_list2):
+    return my_list2[-1]
+  else:
+    return my_list1[-1]
+
+# Uncomment the line below when your function is done
+print(larger_list([4, 10, 2, 5], [-10, 2, 5, 10]))
+
+# 4. More Than N
+
+# Create a function named more_than_n() that has three parameters named my_list, item, and n.
+# The function should return True if item appears in the list more than n times. The function should return False otherwise.
+
+# Write your function here
+def more_than_n(my_list, item, n):
+  if my_list.count(item) > n:
+    return True
+  else:
+    return False
+
+# Uncomment the line below when your function is done
+print(more_than_n([2, 4, 6, 2, 3, 2, 1, 2], 2, 3))
+
+# 5. Combine Sort
+
+# Write a function named combine_sort() that has two parameters named my_list1 and my_list2.
+# The function should combine these two lists into one new list and sort the result. Return the new sorted list.
+
+# Write your function here
+def combine_sort(my_list1, my_list2):
+  newlist = my_list1 + my_list2
+  newlist.sort()
+  return newlist
+
+
+# Uncomment the line below when your function is done
+print(combine_sort([4, 10, 2, 5], [-10, 2, 5, 10]))
+
+"""
+Python Code Challenges: Loops
+
+In this set of challenges, the task was to practice using Python loops by solving
+a series of focused problems. Each exercise involved applying for and while
+loops to iterate over data, accumulate results, and control the flow of repeated
+operations. The goal was to write, test, debug, and refine loop-based solutions
+in order to build confidence and fluency with iteration in Python.
+"""
+
+# 1. Divisible By Ten
+
+# Create a function named divisible_by_ten() that takes a list of numbers named nums as a parameter.
+# Return the count of how many numbers in the list are divisible by 10.
+
+#Write your function here
+def divisible_by_ten(nums):
+  count = 0
+  for num in nums:
+    if num % 10 == 0:
+      count += 1
+  return count
+
+#Uncomment the line below when your function is done
+print(divisible_by_ten([20, 25, 30, 35, 40]))
+
+# 2. Greetings
+
+# Create a function named add_greetings() which takes a list of strings named names as a parameter.
+# In the function, create an empty list that will contain each greeting. Add the string 'Hello, ' in front of each name in names and append the greeting to the list.
+# Return the new list containing the greetings.
+
+#Write your function here
+def add_greetings(names):
+  greeting = []
+  for name in names:
+    greeting.append('Hello, ' + name)
+  return greeting
+
+#Uncomment the line below when your function is done
+print(add_greetings(["Owen", "Max", "Sophie"]))
+
+# 3. Delete Starting Even Numbers
+
+# Write a function called delete_starting_evens() that has a parameter named my_list.
+# The function should remove elements from the front of my_list until the front of the list is not even. The function should then return my_list.
+# For example if my_list started as [4, 8, 10, 11, 12, 15], then delete_starting_evens(my_list) should return [11, 12, 15].
+# Make sure your function works even if every element in the list is even!
+
+#Write your function here
+def delete_starting_evens(my_list):
+  while (len(my_list) > 0 and my_list[0] % 2 == 0):
+    my_list = my_list[1:]
+  return my_list
+
+#Uncomment the lines below when your function is done
+print(delete_starting_evens([4, 8, 10, 11, 12, 15]))
+print(delete_starting_evens([4, 8, 10]))
+
+# 4. Odd Indices
+
+# Create a function named odd_indices() that has one parameter named my_list.
+# The function should create a new empty list and add every element from my_list that has an odd index. The function should then return this new list.
+# For example, odd_indices([4, 3, 7, 10, 11, -2]) should return the list [3, 10, -2].
+
+#Write your function here
+#Write your function here
+def odd_indices(my_list):
+  new_list = []
+  for index in range(1, len(my_list), 2):
+    new_list.append(my_list[index])
+  return new_list
+
+#Uncomment the line below when your function is done
+print(odd_indices([4, 3, 7, 10, 11, -2]))
+
+#Uncomment the line below when your function is done
+print(odd_indices([4, 3, 7, 10, 11, -2]))
+
+# 5. Exponents
+
+# Create a function named exponents() that takes two lists as parameters named bases and powers. Return a new list containing every number in bases raised to every number in powers.
+
+#Write your function here
+def exponents(bases, powers):
+  newlist = []
+  for i in bases:
+    for j in powers:
+      newlist.append(i ** j)
+  return newlist
+
+#Uncomment the line below when your function is done
+print(exponents([2, 3, 4], [1, 2, 3]))
